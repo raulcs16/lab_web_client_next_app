@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --bg-dark: hsl(0, 0, 0%);
+  --bg: hsl(0 0 5%);
+  --bg-light: hsl(0 0 10%);
+  --text-primary: hsl(0 0 95%);
+  --text-secondary: hsl(0 0 75%);
+  --border: hsl(0 0 30%);
+  --highlight: hsl(0 0 60%);
+
+  /* Fixed spelling: linear-gradient */
+  --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+  --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+  --shadow: 0px 2px 2px hsla(0, 0, 0, 0.07), 0px 4px 4px hsla(0, 0, 0, 0.15);
+}
+
+@theme inline {
+  --color-bg-dark: var(--bg-dark);
+  --color-bg: var(--bg);
+  --color-bg-light: var(--bg-light);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-border: var(--border);
+
+  /* Fixed missing token: maps to color-highlight (e.g. text-highlight, bg-highlight) */
+  --color-highlight: var(--highlight);
+
+  /* Fixed namespaces for gradients (gives you bg-primary-gradient and bg-hover-gradient) */
+  --background-image-primary-gradient: var(--gradient);
+  --background-image-hover-gradient: var(--gradient-hover);
+
+  /* Fixed spelling: changed --shdadow to --shadow */
+  --shadow-primary: var(--shadow);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-dark: hsl(0, 0, 0%);
+    --bg: hsl(0 0 5%);
+    --bg-light: hsl(0 0 10%);
+    --text-primary: hsl(0 0 95%);
+    --text-secondary: hsl(0 0 75%);
+    --border: hsl(0 0 30%);
+    --highlight: hsl(0 0 60%);
+
+    /* Fixed spelling: linear-gradient */
+    --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+    --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+    --shadow: 0px 2px 2px hsla(0, 0, 0, 0.07), 0px 4px 4px hsla(0, 0, 0, 0.15);
+  }
+}
+::-webkit-scrollbar {
+  width: 6px; /* Make them thin and elegant */
+  height: 6px; /* For horizontal tracks if needed */
+}
+
+/* 2. Target the scrolling handle draggable thumb */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.2); /* Low-opacity slate color */
+  border-radius: 9999px; /* Fully rounded pill style */
+  transition: background-color 0.2s ease;
+}
+
+/* 3. Highlight the thumb slightly on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(148, 163, 184, 0.4); /* Brighter on user hover */
+}
+
+/* 4. Keep the empty background track invisible */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
